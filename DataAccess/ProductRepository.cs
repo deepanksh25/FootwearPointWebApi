@@ -35,12 +35,12 @@ namespace FootwearPointWebApi.DataAccess
             command.Connection = Connection;
             command.CommandType = CommandType.Text;
             command.CommandText = "SELECT * FROM PRODUCTS";
-            
+
             //if(Connection.State != System.Data.ConnectionState.Open)
             //{
             //    Connection.Open();
             //}
-
+            
             SqlDataReader reader = command.ExecuteReader();
             if (reader != null)
             {
@@ -144,7 +144,7 @@ namespace FootwearPointWebApi.DataAccess
 
             return product;
         }
-        public int Insert(ProductViewModel data)
+        public int Insert(ShoeViewModel data)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -156,20 +156,20 @@ namespace FootwearPointWebApi.DataAccess
                     // Updated SQL query to insert all the new columns
                     command.CommandText = @"
             INSERT INTO Products 
-            (ProductName, ProductPrice, ProductQuantityInStock, ProductImageUrl, ProductSize, GenderCategory, ProductSubCategoryID, ProductCategoryID, ProductColor)
+            (ProductName, ProductPrice, ProductQuantityInStock, ProductImageUrl, ProductSize, GenderCategory, ProductSubCategoryID, ProductCategoryID, ProductColor,ProductQuantityAdded)
             VALUES 
-            (@ProductName, @ProductPrice, @ProductQuantityInStock, @ProductImageUrl, @ProductSize, @GenderCategory, @ProductSubCategoryID, @ProductCategoryID, @ProductColor)";
+            (@ProductName, @ProductPrice, @ProductQuantityInStock, @ProductImageUrl, @ProductSize, @GenderCategory, @ProductSubCategoryID, @ProductCategoryID, @ProductColor, @ProductQuantityAdded)";
 
                     command.Parameters.AddWithValue("@ProductName", data.ProductName);
                     command.Parameters.AddWithValue("@ProductPrice", data.ProductPrice);
-                    command.Parameters.AddWithValue("@ProductQuantityInStock", data.ProductQuantityLeft);
+                    command.Parameters.AddWithValue("@ProductQuantityInStock", data.ProductQuantityInStock);
                     command.Parameters.AddWithValue("@ProductImageUrl", data.ProductImageUrl);
                     command.Parameters.AddWithValue("@ProductSize", data.ProductSize);
                     command.Parameters.AddWithValue("@GenderCategory", data.GenderCategory);
                     command.Parameters.AddWithValue("@ProductSubCategoryID", data.ProductSubCategoryID);
                     command.Parameters.AddWithValue("@ProductCategoryID", data.ProductCategoryID);
                     command.Parameters.AddWithValue("@ProductColor", data.ProductColor);
-
+                    command.Parameters.AddWithValue("@ProductQuantityAdded", data.ProductQuantityAdded);
                     connection.Open();
                     int affectedRows = command.ExecuteNonQuery();
 

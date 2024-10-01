@@ -232,3 +232,4 @@ C:\Users\deepanksh.pathak\source\repos\FootwearPointWeb\FootwearPointWebApi\bin\
 C:\Users\deepanksh.pathak\source\repos\FootwearPointWeb\FootwearPointWebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\deepanksh.pathak\source\repos\FootwearPointWeb\FootwearPointWebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\deepanksh.pathak\source\repos\FootwearPointWeb\FootwearPointWebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\deepanksh.pathak\source\repos\FootwearPointWeb\FootwearPointWebApi\obj\Debug\net8.0\FootwearPointWebApi.sourcelink.json

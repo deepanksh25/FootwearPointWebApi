@@ -85,22 +85,6 @@
   },
   {
     "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
-    "Method": "Post",
-    "RelativePath": "api/Products",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FootwearPointWebApi.Models.ProductViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
     "Method": "Update",
     "RelativePath": "api/Products/{id}",
     "HttpMethod": "PUT",
@@ -196,6 +180,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
+    "Method": "Post",
+    "RelativePath": "api/Products/post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "FootwearPointWebApi.Models.ShoeViewModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

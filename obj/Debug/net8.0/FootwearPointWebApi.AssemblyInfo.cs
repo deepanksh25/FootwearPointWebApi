@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootwearPointWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c17e878fea5cfdb42f0d0568bf0fd2b52b7c31f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootwearPointWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootwearPointWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -173,8 +173,8 @@ namespace FootwearPointWebApi.Controllers
             return Results.Ok(response);
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] ProductViewModel model)
+        [HttpPost("post")]
+        public IActionResult Post([FromBody] ShoeViewModel model)
         {
             ProductRepository repo = new ProductRepository();
 
