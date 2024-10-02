@@ -28,9 +28,9 @@ namespace FootwearPointWebApi.DataAccess
             return reader;
         }
 
-        public virtual IList<ProductViewModel> getAll()
+        public virtual IList<ShoeViewModel> getAll()
         {
-            IList<ProductViewModel> products = new List<ProductViewModel>();
+            IList<ShoeViewModel> products = new List<ShoeViewModel>();
             SqlCommand command = new SqlCommand();
             command.Connection = Connection;
             command.CommandType = CommandType.Text;
@@ -46,20 +46,20 @@ namespace FootwearPointWebApi.DataAccess
             {
                 while (reader.Read())
                 {
-                    products.Add(new ProductViewModel
+                    products.Add(new ShoeViewModel
                     {
                         ProductID = Convert.ToInt32(reader["ProductID"]),
                         ProductName = Convert.ToString(reader["ProductName"]),
                         ProductCategoryID = Convert.ToInt32(reader["ProductCategoryID"]),
                         ProductColor = Convert.ToString(reader["ProductColor"]),
                         ProductPrice = Convert.ToInt32(reader["ProductPrice"]),
-                        ProductQuantityLeft = Convert.ToInt32(reader["ProductQuantityInStock"]),
+                        ProductQuantityInStock = Convert.ToInt32(reader["ProductQuantityInStock"]),
                         ProductSize = Convert.ToInt32(reader["ProductSize"]),
                         GenderCategory = Convert.ToString(reader["GenderCategory"]),
                         ProductImageUrl = Convert.ToString(reader["ProductImageUrl"]),
                         ProductImage = null,
                         ProductSubCategoryID = Convert.ToInt32(reader["ProductSubCategoryID"]),
-                        ProductQuantityAdded = 0,
+                        ProductQuantityAdded = Convert.ToInt32(reader["ProductQuantityAdded"]),
                     });
                 }
                 return products.ToList();
@@ -144,7 +144,7 @@ namespace FootwearPointWebApi.DataAccess
 
             return product;
         }
-        public int Insert(ShoeViewModel data)
+        public int Insert(AddShoeModel data)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -265,7 +265,7 @@ namespace FootwearPointWebApi.DataAccess
             }
         }
 
-
+        
         public IList<CategoryCount> getbyCategory()
         {
             IList<CategoryCount> categoryCount = new List<CategoryCount>();

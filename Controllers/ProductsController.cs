@@ -22,7 +22,6 @@ namespace FootwearPointWebApi.Controllers
    
 
         [HttpGet("GetProducts")]
-        [Authorize(Roles = "Admin,Customer")]
         public IResult GetProducts()
         {
                 ProductRepository repo = new ProductRepository();
@@ -161,7 +160,7 @@ namespace FootwearPointWebApi.Controllers
 
             IList<ProductCategory> listCategory = repo.GetCategory();
             IList<ProductSubCategory> listSubCategory = repo.GetSubCategory();
-            IList<ProductViewModel> listAll = repo.getAll();
+            IList<ShoeViewModel> listAll = repo.getAll();
 
             var response = new
             {
@@ -174,31 +173,32 @@ namespace FootwearPointWebApi.Controllers
         }
 
         [HttpPost("post")]
-        public IActionResult Post([FromBody] ShoeViewModel model)
+        public IResult Post([FromBody] AddShoeModel model)
         {
             ProductRepository repo = new ProductRepository();
 
             if (model == null)
             {
-                return BadRequest("Product data is required.");
+                return Results.BadRequest("Product data is required.");
             }
 
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
 
             int affectedRows = repo.Insert(model);
 
             if (affectedRows > 0)
             {
-                return CreatedAtAction(nameof(Get), new { id = model.ProductID }, model); // Return created response
+                return Results.Ok(affectedRows); // Return created response
             }
             else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while saving the product.");
+                //return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while saving the product.");
+                return Results.BadRequest(ModelState);
             }
         }
 
@@ -215,7 +215,7 @@ namespace FootwearPointWebApi.Controllers
             return Ok(product);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public IActionResult Update(int id, [FromBody] ProductViewModel model)
         {
             if (model == null || id != model.ProductID)
@@ -243,7 +243,7 @@ namespace FootwearPointWebApi.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
             ProductRepository repo = new ProductRepository();

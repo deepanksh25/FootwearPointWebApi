@@ -85,29 +85,8 @@
   },
   {
     "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
-    "Method": "Update",
-    "RelativePath": "api/Products/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "FootwearPointWebApi.Models.ProductViewModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
     "Method": "Delete",
-    "RelativePath": "api/Products/{id}",
+    "RelativePath": "api/Products/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -192,7 +171,28 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "FootwearPointWebApi.Models.ShoeViewModel",
+        "Type": "FootwearPointWebApi.Models.AddShoeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootwearPointWebApi.Controllers.ProductsController",
+    "Method": "Update",
+    "RelativePath": "api/Products/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "FootwearPointWebApi.Models.ProductViewModel",
         "IsRequired": true
       }
     ],

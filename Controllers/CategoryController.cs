@@ -9,9 +9,9 @@ namespace FootwearPointWebApi.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-      
-        
-           
+
+
+        [HttpGet("get")]
             public IResult Get()
             {
                 ProductRepository repo = new ProductRepository();
