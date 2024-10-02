@@ -127,5 +127,15 @@ namespace FootwearPointWebApi.DataAccess
             command.Parameters.AddWithValue("@CartID", CartID);
             return command.ExecuteNonQuery();
         }
+
+        public int Delete(int id)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = Connection;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Delete from CartDetails where ProductID = @ProductID ";
+            command.Parameters.AddWithValue("@ProductID", id);
+            return command.ExecuteNonQuery();
+        }
     }
 }

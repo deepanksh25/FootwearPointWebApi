@@ -50,8 +50,8 @@
   {
     "ContainingType": "FootwearPointWebApi.Controllers.CategoryController",
     "Method": "Get",
-    "RelativePath": "api/Category",
-    "HttpMethod": "",
+    "RelativePath": "api/Category/get",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],

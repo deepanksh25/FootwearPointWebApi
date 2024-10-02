@@ -256,7 +256,9 @@ namespace FootwearPointWebApi.Controllers
 
 
             int affectedRows = repo.Delete(id);
-            if (affectedRows > 0)
+            CartRepository cartRepo = new CartRepository();
+            int cartDetailsDeleted = cartRepo.Delete(id);
+            if (affectedRows > 0 && cartDetailsDeleted>0)
             {
                 return Ok("Product deleted successfully.");
             }
